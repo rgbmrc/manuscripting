@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "manuscripting"
+authors = [{ name = "Marco Rigobello" }]
+readme = "README.md"
+license = { file = "LICENSE.txt" }
+requires-python = ">=3.8"
+dynamic = ["version"]
+
+[project.scripts]
+manuscripting = "manuscripting:main"
+
+[tool.setuptools_scm]
