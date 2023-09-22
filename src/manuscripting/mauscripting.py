@@ -94,11 +94,12 @@ def sub(subname, projname, no_build, exclude, bibliography, input):
             line = line[: m.start()] + bibliography + line[m.end() :]
         if input:
             while m := re.search(r"\\input\{(.+?)\}", line):
-                f = Path(m.group(1)).with_suffix(".tex")
+                f = dest / Path(m.group(1)).with_suffix(".tex")
                 line = line[: m.start()] + f.read_text() + line[m.end() :]
                 inputs_files.add(f)
         sys.stdout.write(line)
     for f in inputs_files:
+        print("DELTE:", f)
         f.unlink()
 
     # zip
